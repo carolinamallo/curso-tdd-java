@@ -14,14 +14,15 @@ public class FizzBuzzTest {
 	}
 
 	@Test
-	public void check_fizz_when_number_is_divisible_by_3() {
+	public void check_retrieves_fizz_when_number_is_divisible_by_3() {
 		result = fizzBuzz.execute();
 
 		assertEquals("Fizz", result[3]);
+//		assertEquals("Fizz", FizzBuzz.values().get(3));
 	}
 
 	@Test
-	public void check_buzz_when_number_divisible_by_5(){
+	public void check_retrieves_buzz_when_number_divisible_by_5(){
 		String[] result = fizzBuzz.execute();
 
 		assertEquals("Buzz", result[5]);
@@ -35,7 +36,7 @@ public class FizzBuzzTest {
 	}
 
 	@Test
-	public void check_fizzbuzz_when_number_divisible_by_3_and_5(){
+	public void check_retrieves_fizzbuzz_when_number_divisible_by_3_and_5(){
 		String[] result = fizzBuzz.execute();
 
 		assertEquals("FizzBuzz", result[15]);
@@ -63,6 +64,7 @@ public class FizzBuzzTest {
 		String[] result = fizzBuzz.execute();
 
 		assertEquals("Buzz", result[55]);
+		assertEquals("Buzz", result[52]);
 		assertEquals("Buzz", result[25]);
 	}
 }
