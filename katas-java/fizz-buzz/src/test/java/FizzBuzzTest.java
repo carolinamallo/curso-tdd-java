@@ -1,5 +1,4 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,6 +39,8 @@ public class FizzBuzzTest {
 		String[] result = fizzBuzz.execute();
 
 		assertEquals("FizzBuzz", result[15]);
+		assertEquals("FizzBuzz", result[35]);
+		assertEquals("FizzBuzz", result[53]);
 	}
 
 	@Test
@@ -47,5 +48,21 @@ public class FizzBuzzTest {
 		String[] result = fizzBuzz.execute();
 
 		assertEquals(result.length, 100);
+	}
+
+	@Test
+	public void check_retrieves_fizz_when_number_contains_3(){
+		String[] result = fizzBuzz.execute();
+
+		assertEquals("Fizz", result[13]);
+		assertEquals("Fizz", result[31]);
+	}
+
+	@Test
+	public void check_retrieves_buzz_when_number_contains_5(){
+		String[] result = fizzBuzz.execute();
+
+		assertEquals("Buzz", result[55]);
+		assertEquals("Buzz", result[25]);
 	}
 }

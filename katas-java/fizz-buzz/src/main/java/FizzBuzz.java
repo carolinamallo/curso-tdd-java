@@ -3,17 +3,19 @@ public class FizzBuzz {
         String[] result = new String[100];
 
         for(int i = 1; i< 100; i++){
-            if(i%3 == 0 && i%5 == 0){
-                result[i] = "FizzBuzz";
-            }
-            else if(i%3 == 0){
+
+            result[i] = Integer.toString(i);
+
+            if(i%3 == 0 || Integer.toString(i).contains("3")){
                 result[i] = "Fizz";
             }
-            else if(i%5 == 0){
-                result[i] = "Buzz";
-            }
-            else{
-                result[i] = Integer.toString(i);
+            if(i%5 == 0 || Integer.toString(i).contains("5")){
+                if(result[i].equals("Fizz")){
+                    result[i] += "Buzz";
+                }
+                else {
+                    result[i] = "Buzz";
+                }
             }
         }
         return result;
