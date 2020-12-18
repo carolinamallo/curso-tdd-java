@@ -4,9 +4,22 @@ public class Alarm {
     private final double LowPressureThreshold = 17;
     private final double HighPressureThreshold = 21;
 
-    private Sensor sensor = new Sensor();
+    private Sensor sensor;
+    private AlarmActivator alarmActivator; //Es una interfaz
 
-    private boolean alarmOn = false;
+    private boolean alarmOn;
+
+    public Alarm(){
+        sensor = new RandomSensor();
+        alarmActivator = new AlarmSpeakerByPrint();
+        alarmOn = false;
+    }
+
+    public Alarm(Sensor sensor, AlarmActivator alarmActivator, boolean alarmOn) {
+        this.sensor = sensor;
+        this.alarmActivator = alarmActivator;
+        this.alarmOn = alarmOn;
+    }
 
     public void check() {
         double psiPressureValue = sensor.popNextPressurePsiValue();
@@ -14,12 +27,12 @@ public class Alarm {
         if (psiPressureValue < LowPressureThreshold || HighPressureThreshold < psiPressureValue) {
             if(!isAlarmOn()) {
                 alarmOn = true;
-                System.out.println("Alarm activated!");
+                alarmActivator.activateAlarm();
             }
         } else {
             if(isAlarmOn()) {
                 alarmOn = false;
-                System.out.println("Alarm deactivated!");
+                alarmActivator.deactivateAlarm();
             }
         }
     }
