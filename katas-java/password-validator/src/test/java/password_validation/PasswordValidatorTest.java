@@ -16,7 +16,7 @@ public class PasswordValidatorTest {
   }
 
   @Test
-  public void check_password_is_greater_than_8_characters() {
+  public void return_false_when_password_is_not_greater_than_8_characters() {
     String invalidPassword = "23456Ab_";
 
     boolean validation = PasswordValidator.isValid(invalidPassword);
@@ -25,7 +25,7 @@ public class PasswordValidatorTest {
   }
 
   @Test
-  public void check_password_not_contains_at_least_1_capital_letter() {
+  public void return_false_when_password_not_contains_at_least_1_capital_letter() {
     String invalidPassword = "234567ab_";
 
     boolean validation = PasswordValidator.isValid(invalidPassword);
@@ -34,7 +34,7 @@ public class PasswordValidatorTest {
   }
 
   @Test
-  public void check_password_not_contains_at_least_1_lowercase() {
+  public void return_false_when_password_not_contains_at_least_1_lowercase() {
     String invalidPassword = "234567AB_";
 
     boolean validation = PasswordValidator.isValid(invalidPassword);
@@ -43,7 +43,7 @@ public class PasswordValidatorTest {
   }
 
   @Test
-  public void check_password_not_contains_at_least_1_number() {
+  public void return_false_when_password_not_contains_at_least_1_number() {
     String invalidPassword = "abcdefAB_";
 
     boolean validation = PasswordValidator.isValid(invalidPassword);
@@ -52,7 +52,7 @@ public class PasswordValidatorTest {
   }
 
   @Test
-  public void check_password_not_contains_at_least_1_underscore() {
+  public void return_false_when_password_not_contains_at_least_1_underscore() {
     String invalidPassword = "234567aBC";
 
     boolean validation = PasswordValidator.isValid(invalidPassword);
